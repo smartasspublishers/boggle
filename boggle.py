@@ -26,8 +26,9 @@ def search(grid, dictionary):
 		for next_pos in neighbours[path[-1]]:
 			if next_pos not in path:
 				do_search(path + [next_pos])
-		for posistion in grid:
-			do_search([posistion])
+
+	for position in grid:
+		do_search([position])
 
 	words = []
 	for path in paths:
@@ -40,9 +41,9 @@ def all_grid_neighbours(grid):
 		position_neighbours = neighbours_of_position(position[0], position[1])
 		neighbours[position] = [p for p in position_neighbours if p in grid]
 	return neighbours
-	
+
 def path_to_word(grid, path):
-	return ''.join([grip[p] for p in path])
+	return ''.join([grid[p] for p in path])
 
 def main():
     grid = make_grid(3, 3)
